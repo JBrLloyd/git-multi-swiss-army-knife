@@ -1,3 +1,5 @@
+use std::rc::Rc;
+
 use crate::subcommands::subcommand_handler::SubcommandHandler;
 use clap::{Subcommand, Parser};
 
@@ -19,8 +21,13 @@ struct Cli {
 
 pub fn handle() {
     let args = Cli::parse();
-    
+    // let cli_context: Rc<Refcell<CliContext>> = Rc::new()
+
     match args.command {
         Commands::ReadFile(args) => args.handle(),
     }
+}
+
+struct CliContext {
+
 }
